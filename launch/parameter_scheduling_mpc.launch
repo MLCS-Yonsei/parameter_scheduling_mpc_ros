@@ -13,7 +13,7 @@
   <arg name="max_angular_vel" default="0.49"/>
   <arg name="wheel_radius" default="0.1"/>
   <arg name="wheel_separation" default="0.653"/>
-  <arg name="mdp_data" default="$(find pvmpc)/bin/mdp_cartesian_10" doc="If you wan to fix the cost function, please set this argument to be 'fixed'"/>
+  <arg name="mdp_data" default="$(find parameter_scheduling_mpc)/bin/mdp_cartesian_10" doc="If you wan to fix the cost function, please set this argument to be 'fixed'"/>
   <arg name="RK4" default="false"/>
   <arg name="cmd_vel_topic" default="/cmd_vel"/>
   <arg name="base_frame" default="/base_link"/>
@@ -28,7 +28,7 @@
   <arg name="publish_path" default="false"/>
   <arg name="switching" default="false"/>
 
-  <node pkg="pvmpc" type="pvmpc.py" name="pvmpc"  output="screen">
+  <node pkg="parameter_scheduling_mpc" type="parameter_scheduling_mpc.py" name="parameter_scheduling_mpc"  output="screen">
     <param name="casadi_path" value="$(arg casadi_path)"/>
     <param name="loop_rate" value="$(arg loop_rate)"/>
     <param name="use_odom" value="$(arg use_odom)"/>
