@@ -1,0 +1,13 @@
+<package format="2">
+  <name>parameter_scheduling_mpc</name>
+  <version>0.0.0</version>
+  <description>Package MPC Controller with Scheduled Parameters for Differential-drive Wheeled Mobile Robot</description>
+  <maintainer email="jaehyunlim@yonsei.ac.kr">Jaehyun Lim</maintainer>
+  <license>None</license>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <build_export_depend>roscpp</build_export_depend>
+</package>

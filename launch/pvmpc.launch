@@ -1,0 +1,62 @@
+<launch>
+
+  <arg name="loop_rate" default="20"/>
+  <arg name="use_odom" default="false"/>
+  <arg name="regularization_u" default="0.001"/>
+  <arg name="regularization_v" default="0"/>
+  <arg name="regularization_omega" default="0"/>
+  <arg name="step_time" default="0.05"/>
+  <arg name="time_horizon" default="10"/>
+  <arg name="max_wheel_angular_vel" default="2.0"/>
+  <arg name="max_wheel_angular_acc" default="1.0"/>
+  <arg name="max_linear_vel" default="0.2"/>
+  <arg name="max_angular_vel" default="0.49"/>
+  <arg name="wheel_radius" default="0.1"/>
+  <arg name="wheel_separation" default="0.653"/>
+  <arg name="mdp_data" default="$(find pvmpc)/bin/mdp_cartesian_10" doc="If you wan to fix the cost function, please set this argument to be 'fixed'"/>
+  <arg name="RK4" default="false"/>
+  <arg name="cmd_vel_topic" default="/cmd_vel"/>
+  <arg name="base_frame" default="/base_link"/>
+  <arg name="xy_tol" default="0.05"/>
+  <arg name="yaw_tol" default="0.01"/>
+  <arg name="cost_r" default="1.0"/>
+  <arg name="cost_alpha" default="1.0"/>
+  <arg name="cost_phi" default="1.0"/>
+  <arg name="warm_start" default="false"/>
+  <arg name="mode" default="cartesian"/>
+  <arg name="minimize_rot_err" default="true"/>
+  <arg name="publish_path" default="false"/>
+  <arg name="switching" default="false"/>
+
+  <node pkg="pvmpc" type="pvmpc.py" name="pvmpc"  output="screen">
+    <param name="casadi_path" value="$(arg casadi_path)"/>
+    <param name="loop_rate" value="$(arg loop_rate)"/>
+    <param name="use_odom" value="$(arg use_odom)"/>
+    <param name="regularization_u" value="$(arg regularization_u)"/>
+    <param name="regularization_v" value="$(arg regularization_v)"/>
+    <param name="regularization_omega" value="$(arg regularization_omega)"/>
+    <param name="step_time" value="$(arg step_time)"/>
+    <param name="time_horizon" value="$(arg time_horizon)"/>
+    <param name="max_wheel_angular_vel" value="$(arg max_wheel_angular_vel)"/>
+    <param name="max_wheel_angular_acc" value="$(arg max_wheel_angular_acc)"/>
+    <param name="max_linear_vel" value="$(arg max_linear_vel)"/>
+    <param name="max_angular_vel" value="$(arg max_angular_vel)"/>
+    <param name="wheel_radius" value="$(arg wheel_radius)"/>
+    <param name="wheel_separation" value="$(arg wheel_separation)"/>
+    <param name="mdp_data" value="$(arg mdp_data)"/>
+    <param name="RK4" value="$(arg RK4)"/>
+    <param name="cmd_vel_topic" value="$(arg cmd_vel_topic)"/>
+    <param name="base_frame" value="$(arg base_frame)"/>
+    <param name="xy_tol" value="$(arg xy_tol)"/>
+    <param name="yaw_tol" value="$(arg yaw_tol)"/>
+    <param name="cost_r" value="$(arg cost_r)"/>
+    <param name="cost_alpha" value="$(arg cost_alpha)"/>
+    <param name="cost_phi" value="$(arg cost_phi)"/>
+    <param name="warm_start" value="$(arg warm_start)"/>
+    <param name="mode" value="$(arg mode)"/>
+    <param name="minimize_rot_err" value="$(arg minimize_rot_err)"/>
+    <param name="publish_path" value="$(arg publish_path)"/>
+    <param name="switching" value="$(arg switching)"/>
+  </node>
+
+</launch>
